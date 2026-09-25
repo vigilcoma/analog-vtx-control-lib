@@ -71,6 +71,7 @@ public:
   bool updateParameters();  
   bool sa_sendRaw(const String& hex);
   bool sa_setProtocolVersion(ProtocolVersion version);
+  ProtocolVersion getSmartAudioProtocolVersion() const { return sa_protocol_version; }
   bool sa_getSettings();
   int getPowerLevel() { return pwr_Level; }
   int getChannelIndex() { return ch_index; }
@@ -90,7 +91,7 @@ private:
   int errors = VTXErrors::vtxNoErrors;
   long sa_offerNewSpeed(long currentSpeed);//tries to offer other baud rate to work with vtx
   void setError(VTXErrors error);
-  ProtocolVersion sa_protocol_version;//smart audio protocol version
+  ProtocolVersion sa_protocol_version = ProtocolVersion::SMARTAUDIO_SPEC_PROTOCOL_v1;//smart audio protocol version
   int pwr_Level = -1;//default value -1 means not updated (not requested from VTX)
   int ch_index = -1;//default value -1 means not updated (not requested from VTX)
   bool pitMode = false;
