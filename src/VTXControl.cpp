@@ -543,6 +543,25 @@ bool VTXControl::sa_parseResponseBuffer(const uint8_t *buffer) {
 //   return false;
 // }
 
+bool VTXControl::setSmartAudioPowerRaw(uint8_t rawPower) {
+  if (vtx_mode != VTXMode::SmartAudio) return false;
+
+  clearErrors();
+  uint8_t buf[6] = {0xAA, 0x55, SMARTAUDIO_CMD_SET_POWER, 1, rawPower, 0};
+  buf[5] = sa_CRC8(buf, 5);
+
+  // Preserve the proven SmartAudio send sequence: drive the line low with the
+  // dummy byte, transmit the command, then let sa_readResponse() flush and
+  // release the one-wire bus back to RX-only mode.
+  port->enableTx(true);
+  port->writeDummyByte();
+  const bool sent = port->write(buf, sizeof(buf)) == sizeof(buf);
+#if SMARTAUDIO_WRITE_ZEROBYTES_AT_THE_END
+  port->write((uint8_t)0x00);
+#endif
+  return sent && sa_readResponse();
+}
+
 bool VTXControl::setPowerInmW(uint16_t pwrmW) {
   bool res = false;
   clearErrors();

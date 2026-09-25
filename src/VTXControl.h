@@ -63,6 +63,7 @@ public:
   bool setChannel(int freqIndex);//sets frequency by channel index
   bool setFrequency(uint16_t freq);//set frequency by freq value
   bool setPower(int pwrLevel);//sets power by power index in table of powers
+  bool setSmartAudioPowerRaw(uint8_t rawPower);//sends a VTX-specific SmartAudio power value
   bool setPowerInmW(uint16_t pwrmW);//sets power by value in mW
   void setTrampPowerTable(const int* values, size_t count);
   bool setNextChannel();

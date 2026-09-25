@@ -48,6 +48,7 @@ For a Tramp VTX, use `VTXMode::Tramp`. Before setting a Tramp power level by ind
 - `setChannel(int standard_5_8ghz_index)`
 - `setPower(int level)`
 - `setPowerInmW(uint16_t milliwatts)`
+- `setSmartAudioPowerRaw(uint8_t raw_value)` for VTX-specific SmartAudio tables
 - `updateParameters()`
 - `flush()`
 
