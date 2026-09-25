@@ -1,0 +1,13 @@
+{
+  "name": "AnalogVtxControl",
+  "version": "0.1.0",
+  "description": "ESP32 half-duplex SmartAudio and Tramp controller for analog VTX frequency and power control.",
+  "keywords": ["fpv", "vtx", "smartaudio", "tramp", "analog"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vigilcoma/analog-vtx-control-lib.git"
+  },
+  "frameworks": ["arduino"],
+  "platforms": ["espressif32"],
+  "headers": "VTXControl.h"
+}
