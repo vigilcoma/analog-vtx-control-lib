@@ -1,3 +1,4 @@
+#if defined(ARDUINO)
 #pragma once
 #include <Arduino.h>
 #include <HardwareSerial.h>
@@ -97,3 +98,5 @@ private:
   uint32_t _config = SERIAL_8N1;
   bool _txMode = false; // false=RX-only, true=TX-only
 };
+
+#endif  // ARDUINO

@@ -1,3 +1,4 @@
+#if defined(ARDUINO)
 #include <Arduino.h>
 // #include <util/delay.h>
 #include "HardwareSerialAdapter.h"
@@ -1146,3 +1147,5 @@ bool VTXControl::trampReadResponse() {
   // port->flush();
   // return false;
 }
+
+#endif  // ARDUINO

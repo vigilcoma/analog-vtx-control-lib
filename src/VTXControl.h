@@ -1,3 +1,4 @@
+#if defined(ARDUINO)
 #include <Arduino.h>
 #include "HardwareSerialAdapter.h"
 #include "VTX_SmartAudio.h"
@@ -141,3 +142,5 @@ private:
   bool trampReadResponse();    
 };
 #endif
+
+#endif  // ARDUINO

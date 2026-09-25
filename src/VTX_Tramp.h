@@ -1,7 +1,12 @@
 #ifndef VTX_TRAMP_H_
 #define VTX_TRAMP_H_
 
-#include "Arduino.h"
+#if defined(ARDUINO)
+#include <Arduino.h>
+#else
+#include <cstdint>
+#include <cstring>
+#endif
 
 #define AP_TRAMP_UART_CFG             801 //8 databits, 1 start bit, 1 stop bit
 #define AP_TRAMP_UART_BAUD            9600
